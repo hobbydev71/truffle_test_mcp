@@ -1,5 +1,6 @@
-import * as dotenv from "dotenv";
+const dotenv = require("dotenv");
 const HDWalletProvider = require('@truffle/hdwallet-provider');
+dotenv.config();
 module.exports = {
   // Uncommenting the defaults below 
   // provides for an easier quick-start with Ganache.
@@ -17,7 +18,7 @@ module.exports = {
      timeout: 10000,
    },
    test: {
-    provider: () => new HDWalletProvider(process.env.CCNBETA_PRIVATE_KEY, `https://huygens.computecoin.network:8765`),
+    provider: () => new HDWalletProvider(process.env.CCN_PRIVATE_KEY, process.env.CCN_URL),
     host: "https://huygens.computecoin.network/",
     port: 8765,
     network_id: "828",
